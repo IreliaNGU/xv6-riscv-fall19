@@ -99,6 +99,7 @@ kalloc(void)
 {
   struct run *r;
 
+  
   int curid = getcpuid();
   acquire(&kmems[curid].lock);
   r = kmems[curid].freelist;

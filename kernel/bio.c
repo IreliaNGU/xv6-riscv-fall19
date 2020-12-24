@@ -54,6 +54,7 @@ binit(void)
   // Create linked list of buffers
   // bcache.head.prev = &bcache.head;
   // bcache.head.next = &bcache.head;
+
   for(b = bcache.buf; b < bcache.buf+NBUF; b++){
     b->next = bcache.hashbucket[0].next;
     b->prev = &bcache.hashbucket[0];
@@ -97,7 +98,7 @@ bget(uint dev, uint blockno)
     }
   }
   int nh=(h+1)%NBUCKETS; 
-             
+     
   while(nh!=h){
     acquire(&bcache.lock[nh]);
     for(b = bcache.hashbucket[nh].prev; b != &bcache.hashbucket[nh]; b = b->prev){
