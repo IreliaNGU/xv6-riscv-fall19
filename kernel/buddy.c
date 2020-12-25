@@ -61,7 +61,7 @@ void bit_toggle(char *array,int index){
   index/=2;
   char b = array[index/8];
   char m = (1 << (index % 8));
-  array[index/8] = (b ^ m);
+  array[index/8] = (b ^  m);
 }
 
 // return 1 if the bit at position index in array is 1

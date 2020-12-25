@@ -41,6 +41,7 @@ filealloc(void)
   // }
 
   f=bd_malloc(sizeof(struct file));
+  memset(f,0,sizeof(struct  file));
   if(f){
     f->ref=1;
     release(&ftable.lock);
